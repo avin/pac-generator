@@ -3,13 +3,13 @@
 ## Install
 
 ```sh
-npm install -g pac-maker
+npm install -g pac-generator
 ```
 
 ## Usage
 
 ```sh
-pac-maker --config ./config.js
+pac-generator --config ./config.js
 ```
 
 ## Config example
