@@ -19,7 +19,7 @@ const ensureDirectoryExistence = async (filePath: string) => {
 
 void (async () => {
   const argv = await yargs(process.argv.slice(2)).options({
-    config: { type: 'string', alias: 'c', default: path.resolve(os.homedir(), '.pac-maker.js') },
+    config: { type: 'string', alias: 'c', default: path.resolve(os.homedir(), '.pac-generator.config.js') },
   }).argv;
 
   let config: Config;
