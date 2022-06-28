@@ -1,6 +1,6 @@
 {
   "name": "pac-generator",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Generate PAC from ip/domain-lists",
   "main": "./dist/index.js",
   "bin": {
