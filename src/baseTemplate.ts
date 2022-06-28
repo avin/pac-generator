@@ -29,12 +29,19 @@ function FindProxyForURL(url, host) {
     } else {
       hostIp = dnsResolve(host);
     }
-    for (const ipWithMask of proxy.ips) {
-      isMatchIpMask = isMatchIpMask || isInNet(hostIp, ipWithMask[0], ipWithMask[1]);
-      if (isMatchDomain) {
-        break;
+
+    const ipParts = hostIp.split('.');
+    const key = ipParts[0] + '.' + ipParts[1] + '.';
+
+    if(proxy.ipsMap[key]){
+      for (const ipWithMask of proxy.ipsMap[key]) {
+        isMatchIpMask = isMatchIpMask || isInNet(hostIp, ipWithMask[0], ipWithMask[1]);
+        if (isMatchDomain) {
+          break;
+        }
       }
     }
+
     if (isMatchIpMask) {
       return proxy.connection;
     }
@@ -42,5 +49,3 @@ function FindProxyForURL(url, host) {
   return 'DIRECT';
 }
 `;
-
-
