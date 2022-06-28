@@ -1,0 +1,46 @@
+{
+  "name": "pac-generator",
+  "version": "0.1.0",
+  "description": "Generate PAC from ip/domain-lists",
+  "main": "./dist/index.js",
+  "bin": {
+    "pac-maker": "./dist/cli.js"
+  },
+  "author": "Avin Lambrero",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node-transpile-only ./src/cli.ts",
+    "prepublishOnly": "npm run build",
+    "format": "prettier --write \"**/*.{js,ts,md,cjs}\" -c"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avin/pac-maker.git"
+  },
+  "keywords": [
+    "pac",
+    "generator",
+    "proxy",
+    "socks5",
+    "tor"
+  ],
+  "devDependencies": {
+    "@types/node": "^17.0.42",
+    "@types/yargs": "^17.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/parser": "^5.27.1",
+    "eslint": "^8.17.0",
+    "prettier": "^2.6.2",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3"
+  },
+  "dependencies": {
+    "netmask": "^2.0.2",
+    "yargs": "^17.5.1"
+  }
+}
