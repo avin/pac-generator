@@ -3,5 +3,5 @@ node_modules
 .idea
 .vscode
 dist
-proxies.pac
+*.pac
 config.example.js
