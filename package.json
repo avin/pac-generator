@@ -4,7 +4,7 @@
   "description": "Generate PAC from ip/domain-lists",
   "main": "./dist/index.js",
   "bin": {
-    "pac-maker": "./dist/cli.js"
+    "pac-generator": "./dist/cli.js"
   },
   "author": "Avin Lambrero",
   "license": "MIT",
