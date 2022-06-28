@@ -19,8 +19,8 @@ module.exports = {
   outputPacFile: './proxy.pac',
   proxies: [
     {
-      // Proxy in PAC format  
-      destination: 'SOCKS5 127.0.0.1:7777',
+      // Connection in PAC format  
+      connection: 'SOCKS5 127.0.0.1:7777',
 
       // Custom domains
       domains: ['wixmp.com'],

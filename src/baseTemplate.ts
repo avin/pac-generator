@@ -1,5 +1,6 @@
-export const template = `\
+export const baseTemplate = `\
 const proxies = __PROXIES__;
+
 function FindProxyForURL(url, host) {
   for (const proxy of proxies) {
     let isMatchDomain = false;
@@ -10,7 +11,7 @@ function FindProxyForURL(url, host) {
       }
     }
     if (isMatchDomain) {
-      return proxy.destination;
+      return proxy.connection;
     }
     let isMatchIpMask = false;
     for (const ipWithMask of proxy.ips) {
@@ -20,7 +21,7 @@ function FindProxyForURL(url, host) {
       }
     }
     if (isMatchIpMask) {
-      return proxy.destination;
+      return proxy.connection;
     }
   }
   return 'DIRECT';

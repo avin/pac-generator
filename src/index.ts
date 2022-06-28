@@ -1,9 +1,9 @@
 import { getListFromUrl } from './utils/getListFromUrl';
-import { template } from './template';
+import { baseTemplate } from './baseTemplate';
 import { CIDR2netmask } from './utils/ip';
 
 type ProxyOptions = {
-  destination: string;
+  connection: string;
   ipsUrls?: string;
   domainsUrls?: string;
   domains?: string[];
@@ -11,6 +11,7 @@ type ProxyOptions = {
 };
 
 export type PacGeneratorOptions = {
+  template?: string;
   proxies: ProxyOptions[];
 };
 
@@ -68,11 +69,13 @@ export class PacGenerator {
       });
 
       proxies.push({
-        destination: proxyOptions.destination,
+        connection: proxyOptions.connection,
         domains: domainList,
         ips: ipWithMaskList,
       });
     }
+
+    const template = this.options.template || baseTemplate;
 
     return template.replace('__PROXIES__', JSON.stringify(proxies, null, 2));
   }
