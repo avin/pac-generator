@@ -9,7 +9,6 @@ npm install -g pac-generator
 ## Usage
 
 ```sh
-```sh
 pac-generator --config ./config.js
 ```
 
