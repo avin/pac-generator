@@ -9,8 +9,11 @@ npm install -g pac-generator
 ## Usage
 
 ```sh
+```sh
 pac-generator --config ./config.js
 ```
+
+Default config location: `$HOME/.pac-generator.config.js`
 
 ## Config example
 
