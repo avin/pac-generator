@@ -6,6 +6,10 @@ import os from 'os';
 import { PacGenerator, PacGeneratorOptions } from './index';
 import fs from 'fs/promises';
 
+type Config = PacGeneratorOptions & {
+  outputPacFile?: string;
+};
+
 const ensureDirectoryExistence = async (filePath: string) => {
   const dirname = path.dirname(filePath);
   try {
@@ -18,9 +22,15 @@ void (async () => {
     config: { type: 'string', alias: 'c', default: path.resolve(os.homedir(), '.pac-maker.js') },
   }).argv;
 
-  const config = require(path.resolve(argv.config)) as PacGeneratorOptions & {
-    outputPacFile?: string;
-  };
+  let config: Config;
+  const configPath = path.resolve(argv.config);
+  try {
+    config = require(configPath) as Config;
+  } catch (e) {
+    console.error(`Error loading config file ${configPath}`);
+    console.error(`Usage: pac-generator --config <path>`);
+    process.exit(1);
+  }
 
   const pacGenerator = new PacGenerator(config);
   const pacContent = await pacGenerator.generate();
