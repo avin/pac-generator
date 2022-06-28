@@ -40,7 +40,7 @@ void (async () => {
     await fs.writeFile(config.outputPacFile, pacContent);
 
     console.info('Result:', path.resolve(config.outputPacFile));
+  } else {
+    console.log(pacContent);
   }
-
-  console.log(pacContent);
 })();
