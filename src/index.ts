@@ -4,8 +4,8 @@ import { ListGetter } from './listGetter';
 
 type ProxyOptions = {
   connection: string;
-  ipsUrls?: string;
-  domainsUrls?: string;
+  ipsUrls?: string[];
+  domainsUrls?: string[];
   domains?: string[];
   ips?: string[];
 };
