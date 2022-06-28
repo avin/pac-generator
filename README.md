@@ -22,13 +22,13 @@ module.exports = {
       // Proxy in PAC format  
       destination: 'SOCKS5 127.0.0.1:7777',
 
-      // custom domains
+      // Custom domains
       domains: ['wixmp.com'],
 
-      // domain-lists URLs
+      // Domain-lists URLs
       domainsUrls: ['https://community.antifilter.download/list/domains.lst'],
 
-      // custom IPs
+      // Custom IPs
       ips: [],
 
       // IP-lists URLs
